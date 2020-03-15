@@ -11,7 +11,8 @@ export default function App() {
       return;
     }
 
-    alert('Permission granted!')
+    let pickerResult = await ImagePicker.launchImageLibraryAsync();
+    alert(JSON.stringify(pickerResult, null, 2))
   }
 
   return (

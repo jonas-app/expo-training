@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function App() {
   return (
@@ -9,6 +9,12 @@ export default function App() {
       <Text style={styles.instructions}>
         To share a photo from your phone with a friend, just press the button below!
       </Text>
+
+      <TouchableOpacity
+        onPress={() => alert('Hello, world! 𐂂')}
+        style={{ backgroundColor: '#BC8F8F' }}>
+        <Text style={{ fontSize: 20, color: '#fff' }}>Pick a photo</Text>
+      </TouchableOpacity>
     </View>
   );
 }

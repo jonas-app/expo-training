@@ -1,7 +1,19 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
 
 export default function App() {
+  let openImagePickerAsync = async () => {
+    let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
+
+    if (permissionResult.granted === false) {
+      alert('Permission to access camera roll is required!');
+      return;
+    }
+
+    alert('Permission granted!')
+  }
+
   return (
     <View style={styles.container}>
       <Image source={{ uri: "https://fairkom.net/nextcloud/index.php/s/DHSYraWj97r6YyS/preview" }} style={styles.logo} />
@@ -11,7 +23,7 @@ export default function App() {
       </Text>
 
       <TouchableOpacity
-        onPress={() => alert('Hello, world! 𐂂')}
+        onPress={openImagePickerAsync}
         style={styles.button}>
         <Text style={styles.buttonText}>Pick a photo</Text>
       </TouchableOpacity>
